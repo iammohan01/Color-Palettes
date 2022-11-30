@@ -49,14 +49,34 @@ const colorP =
         color.forEach((i)=>{ 
             let y = hslToHex(i[0],i[1],i[2]) ;
             const colorEle = document.createElement("div")
+            const hexText = document.createElement("p")
+            hexText.classList.add(`hexText`);
 
             colorEle.classList.add(`color${count++}`, `cp`);
             colorEle.style.backgroundColor = y ;  
             colorEle.setAttribute("data-bgColor",y)
             colorEle.addEventListener("mouseover",function(){
-                console.log(this.dataset.bgcolor);
+                hexText.classList.add("dsFlx");
             })
+            colorEle.addEventListener("mouseout",function(){
+                hexText.classList.remove("dsFlx");
+            })
+            hexText.addEventListener("click",function(){
+            let temp = this.innerText ;
+            navigator.clipboard.writeText(this.innerText);
+            this.innerText = "Copied...!";
+            setTimeout(()=>{
+                this.innerText = temp;
+                temp = "";
+            },400)
+            
+            })
+
+            // navigator.clipboard.writeText(copyText.value)
             c.push(y);
+            hexText.innerText = y ;
+
+            colorEle.append(hexText);
             element.append(colorEle);
         })
         colorEle.append(element)
@@ -69,7 +89,7 @@ const colorP =
           const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
           return Math.round(255 * color).toString(16).padStart(2, '0');
         };
-        return `#${f(0)}${f(8)}${f(4)}`;
+        return `#${f(0)}${f(8)}${f(4)}`.toUpperCase();
       }
 
     function randomNumberGen(min,max){
