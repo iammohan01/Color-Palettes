@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+
+}
+body{
+    height: 100vh;
+}
+.logo{
+    height: 10vh;
+}
+.colorsTab{
+    background-color: aqua;
+    height: 90vh;
+    display: flex;
+}
+
+.optionsTab{
+    height: 100%;
+    width: 20%;
+    /* background-color: red; */
+}
+.optionsTab > div{
+    border: 1px solid gray;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor:pointer;
+    margin : 10px
+    /* counter-increment: ; */
+}
+.paletteTab{
+    width: 80%;
+    height: 100%;
+    background-color: green;
+}
+.paletteTab{
+    display: flex ;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    overflow: scroll;
+}
+.colorPalette{
+    /* border : 1px solid red; */
+    height: 40%;
+    width: 25%;
+    flex-shrink: 0;
+    margin: 20px;
+    border-radius: 15px ;
+    position: relative;
+    overflow: hidden;
+}
+.colorPalette > div{
+    /* background-color: aquamarine; */
+    position: absolute;
+    width: 100%;
+}
+.color1{
+    height: 40%;
+    z-index: 4;
+    background-color: aqua;
+}
+.color2{
+    height: 60% ;
+    z-index: 3;
+    background-color: black;
+}
+.color3{
+    height: 80% ;
+    z-index: 2;
+    background-color: blue;
+    
+}
+.color4{
+    height: 100% ;
+    z-index: 1;
+    background-color: rgb(109, 109, 175);
+    
+}
