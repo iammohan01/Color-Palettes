@@ -41,28 +41,49 @@ const colorP =
 
     }
     function createColorPalatteEle(color){
+        const element = document.createElement("div");
+        element.classList.add("colorPalette");
+        
         let c=[] ;
-        let temp = `<div class="colorPalette">`
         let count = 1 ;
         color.forEach((i)=>{ 
-            let x = `hsl(${i[0]},${i[1]}%,${i[2]}%)` ;
-            c.push(x)
-            temp +=( `<div class='color${count++} cp' style="background-color:` + x + `" ></div>` );
+            let y = hslToHex(i[0],i[1],i[2]) ;
+            const colorEle = document.createElement("div")
+
+            colorEle.classList.add(`color${count++}`, `cp`);
+            colorEle.style.backgroundColor = y ;  
+            colorEle.setAttribute("data-bgColor",y)
+            colorEle.addEventListener("mouseover",function(){
+                console.log(this.dataset.bgcolor);
+            })
+            c.push(y);
+            element.append(colorEle);
         })
-        temp += `</div>` ;
-        colorEle.innerHTML += temp ; 
+        colorEle.append(element)
     }
+    function hslToHex(h, s, l) {
+        l /= 100;
+        const a = s * Math.min(l, 1 - l) / 100;
+        const f = n => {
+          const k = (n + h / 30) % 12;
+          const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+          return Math.round(255 * color).toString(16).padStart(2, '0');
+        };
+        return `#${f(0)}${f(8)}${f(4)}`;
+      }
 
     function randomNumberGen(min,max){
         return Math.floor(Math.random() * (max - min + 1) + min) ;
     }
 
-
+    let i = 0 
 
 function test(){
     for(let i = 0 ; i < 100 ; i++){
         generateColorsPalette()
     }
+
+    
 }
 
 test();
@@ -75,7 +96,4 @@ colorEle.addEventListener('scroll', () => {
         test();
         lastContainer = colorEle.lastChild ;
     }
-})
-document.getElementsByClassName("cp").addEventListener("mouseover",()=>{
-    console.log("df");
 })
