@@ -11,6 +11,7 @@ function createColorPalatteEle(color){
         element.classList.add("colorPalette");
         element.id = colorIndex++ ;
         let likeIcon = document.createElement('p');
+        likeIcon.setAttribute("title","save Color Palette")
         likeIcon.innerHTML = `<svg
          xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="rgb(255, 53, 53)" class="bi bi-heart-fill" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
