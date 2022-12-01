@@ -25,19 +25,24 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: start;
-    border: 1px solid red;
+    padding: 20px;
+    /* border: 1px solid red; */
     /* background-color:aqua; */
 
 }
-.optionsTab > div {
-    border: 1px solid gray;
-    height: 50px;
+.opt {
+    border: 1px solid rgba(128, 128, 128, 0.441);
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor:pointer;
     margin : 10px;
     border-radius: 16px;
+}
+.opt-selected{
+    background-color: black;
+    color: white;
 }
 .paletteTab{
     width: 80%;

@@ -136,10 +136,37 @@ colorEle.addEventListener('scroll', () => {
     }
 })
 // Palette maker
-function makePalette(){
+function makePalette(x=1){
     for(let i = 0 ; i < 100 ; i++){
-        // complementaryGen()
-        monoGen();
-        // analogusGen();
+        if (x==0) complementaryGen();
+        else if (x == 1) monoGen();
+        else if (x == 2) analogusGen();
+        else monoGen();
     }
 }
+function resetElements(v){
+    colorEle.innerText = "";
+    makePalette(v)
+}
+let selectionElements = document.getElementsByClassName("opt");
+
+for (let i of selectionElements){
+    i.addEventListener("click",()=>{
+        te(i);
+    })
+}
+
+function te(v = {'dataset' : {'val' : 1}}){
+    v = v.dataset.val ;
+    for (let i = 0 ; i<selectionElements.length ; i++){
+        console.log(v);
+        resetElements(v)
+        if (i != v){
+            selectionElements[i].classList.remove("opt-selected");
+        }
+        else{
+            selectionElements[i].classList.add("opt-selected");
+        }
+    }
+}
+te();
