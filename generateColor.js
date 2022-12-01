@@ -1,12 +1,3 @@
-const colorP = 
-`<div class="colorPalette">
-    <div class="color1"></div>
-    <div class="color2"></div>
-    <div class="color3"></div>
-    <div class="color4"></div>
-</div>` ;
-
-
 
 // Complementary Color Scheme
     let c1 = document.getElementById("c1");
@@ -62,16 +53,17 @@ const colorP =
                 hexText.classList.remove("dsFlx");
             })
             hexText.addEventListener("click",function(){
+                // console.log(this);
+                // console.log(this.parentElement);
             let temp = this.innerText ;
             navigator.clipboard.writeText(this.innerText);
             this.innerText = "Copied...!";
             setTimeout(()=>{
-                this.innerText = temp;
+                this.innerText = this.parentElement.dataset.bgcolor;
                 temp = "";
             },400)
             
             })
-
             // navigator.clipboard.writeText(copyText.value)
             c.push(y);
             hexText.innerText = y ;
