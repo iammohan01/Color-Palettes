@@ -9,7 +9,7 @@
     var colors = [] ;
     let colorNo = 0 ;
     let SecondColor;
-    function generateColorsPalette(){
+    function generateComplementaryColorsPalette(){
         generatedColors[0][0] = randomNumberGen(0,360);
         generatedColors[0][1] = randomNumberGen(50,80) ;
         generatedColors[0][2] = randomNumberGen(30,80) ;
@@ -91,10 +91,9 @@
 
 function test(){
     for(let i = 0 ; i < 100 ; i++){
-        generateColorsPalette()
+        //  generateComplementaryColorsPalette()
+        // monoGen();
     }
-
-    
 }
 
 test();
@@ -108,3 +107,28 @@ colorEle.addEventListener('scroll', () => {
         lastContainer = colorEle.lastChild ;
     }
 })
+
+function monoGen(){
+    
+    let generatedColors = [[],[],[],[]];
+        generatedColors[0][0] = randomNumberGen(0,360);
+        generatedColors[0][1] = randomNumberGen(0,100) ;
+        generatedColors[0][2] = randomNumberGen(20,40) ;
+
+        generatedColors[1][0] = generatedColors[0][0]  ;
+        generatedColors[1][1] = generatedColors[0][1] ;
+        generatedColors[1][2] = generatedColors[0][2] + 20;
+
+        generatedColors[2][0] = generatedColors[0][0] ;
+        generatedColors[2][1] = generatedColors[0][1];
+        generatedColors[2][2] = generatedColors[0][2] + 40 ;
+
+        generatedColors[3][0] = generatedColors[0][0] ;
+        generatedColors[3][1] = generatedColors[0][1] ;
+        generatedColors[3][2] = generatedColors[0][2] + 60 ;
+        createColorPalatteEle(generatedColors);
+
+}
+function analogus(){
+    
+}

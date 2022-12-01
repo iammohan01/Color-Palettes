@@ -69,25 +69,15 @@ body{
 }
 .color1{
     height: 40%;
-    z-index: 4;
-    /* background-color: aqua; */
 }
 .color2{
     height: 20% ;
-    z-index: 3;
-    /* background-color: black; */
 }
 .color3{
     height: 20% ;
-    z-index: 2;
-    /* background-color: blue; */
-    
 }
 .color4{
     height: 20% ;
-    z-index: 1;
-    /* background-color: rgb(109, 109, 175); */
-    
 }
 .cp{
     position: relative;
