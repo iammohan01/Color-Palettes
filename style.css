@@ -12,6 +12,16 @@ body{
 }
 .logo{
     height: 10vh;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+}
+.logo > h1{
+    /* border: 1px solid red; */
+    margin: 0px 40px;
+    font-size: 40px;
+    border-bottom: 4px solid  ;
 }
 .colorsTab{
     /* background-color: red; */
