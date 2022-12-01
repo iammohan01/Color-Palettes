@@ -12,12 +12,10 @@ function createColorPalatteEle(color){
         element.id = colorIndex++ ;
         let likeIcon = document.createElement('p');
         likeIcon.innerHTML = `<svg
-         xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
+         xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="rgb(255, 53, 53)" class="bi bi-heart-fill" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
 </svg>`
         likeIcon.addEventListener('click',()=>{
-            // console.log(colors[likeIcon.parentElement.id]);
-            // console.log(localStorage.getItem("fav"));
             let favCArrtoStr = colors[likeIcon.parentElement.id].toString() ;
             if((localStorage.getItem("fav")) == null){
                 localStorage.setItem("fav",favCArrtoStr+',');
@@ -26,21 +24,10 @@ function createColorPalatteEle(color){
                 localStorage.fav +=favCArrtoStr+',';
             }
             localStorage.fav = ((localStorage.fav).substring(0,(localStorage.fav).length-1)) ;
-            // localStorage.fav = (localStorage.fav).substring((localStorage.fav).length-1)
-            // let fav = JSON.parse(localStorage.getItem("fav"));
-            // console.log(JSON.stringify(colors[likeIcon.parentElement.id]));
             console.log((localStorage.fav).split(','));
-
-            // fav.push(JSON.stringify(colors[likeIcon.parentElement.id]))
-            // localStorage.fav = fav ; 
-            // localStorage.fav +=  colors[likeIcon.parentElement.id]
-            // console.log(localStorage.fav );
-            
-                // localStorage.fav[]  =((colors[likeIcon.parentElement.id]))
-            
+ 
         })
 
-        // console.log(colorIndex);
         let generatedColor=[] ;
         let count = 1 ;
         color.forEach((i)=>{ 
@@ -55,11 +42,9 @@ function createColorPalatteEle(color){
             colorEle.setAttribute("data-bgColor",tempColor)
             colorEle.addEventListener("mouseover",function(){
                 hexText.classList.add("dsFlx");
-                // likeIcon.classList.add("dsFlx");
             })
             colorEle.addEventListener("mouseout",function(){
                 hexText.classList.remove("dsFlx");
-                // likeIcon.classList.remove("dsFlx");
             })
             hexText.addEventListener("click",function(){
             navigator.clipboard.writeText(this.innerText);

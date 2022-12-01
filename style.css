@@ -22,13 +22,18 @@ body{
     margin: 0px 40px;
     font-size: 40px;
     border-bottom: 4px solid  ;
+    display: flex;
+    align-items: center;
 }
 .colorsTab{
     /* background-color: red; */
     height: 90vh;
     display: flex;
 }
-
+#imh{
+    height: 40px;
+    width: 40px;
+}
 .optionsTab{
     /* height: 70px; */
     width: 20%;
