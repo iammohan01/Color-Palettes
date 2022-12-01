@@ -93,18 +93,14 @@ body{
     position: relative;
 }
 .hexText{
-    height: 100%;
-    align-items: center;
-    justify-content: center;
     display: none;
     padding: 5px 10px;
     border-radius: 4px;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.3);
     color: white;
-    font-size: larger;
     font-weight: 800;
+    position: absolute;
 }
 .dsFlx{
-    display: flex;
+    display: unset;
 }

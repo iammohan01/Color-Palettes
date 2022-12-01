@@ -35,7 +35,7 @@
         const element = document.createElement("div");
         element.classList.add("colorPalette");
         
-        let c=[] ;
+        let generatedComplementaryColor=[] ;
         let count = 1 ;
         color.forEach((i)=>{ 
             let y = hslToHex(i[0],i[1],i[2]) ;
@@ -64,8 +64,7 @@
             },400)
             
             })
-            // navigator.clipboard.writeText(copyText.value)
-            c.push(y);
+            generatedComplementaryColor.push(y);
             hexText.innerText = y ;
 
             colorEle.append(hexText);
