@@ -150,26 +150,31 @@ function favGen(){
         }
       }
 }
-
+let temp ;
 // Generate when scrolling reaches end  
 let lastContainer = colorEle.lastChild;
 colorEle.addEventListener('scroll', () => {
     const scrolled = colorEle.scrollTop+1000;
-    // console.log(colorEle.lastChild.offsetTop , lastContainer.offsetTop);
     const elementPosition = colorEle.lastChild.offsetTop // lastContainer.offsetTop;
-    // console.log(lastContainer);
-
     if(scrolled >= elementPosition){
-        // makePalette();
+        if (temp != 3){
+            makePalette(temp);
+        }
         lastContainer = colorEle.lastChild ;
     }
 })
+
+
+
 // Palette maker
 function makePalette(x){
+    temp = x ;
+
     if (x == 3){
         favGen() ;
     }
     else{
+        
         for(let i = 0 ; i < 100 ; i++){
             if (x==0) complementaryGen();
             else if (x == 1) monoGen();
