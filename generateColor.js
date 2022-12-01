@@ -21,17 +21,18 @@ function createColorPalatteEle(color){
                 localStorage.setItem("fav",favCArrtoStr+',');
             }
             else{
+                // console.log((localStorage.fav).includes(favCArrtoStr));
+                if (!(localStorage.fav).includes(favCArrtoStr)){
                 localStorage.fav +=favCArrtoStr+',';
+                }
             }
-            localStorage.fav = ((localStorage.fav).substring(0,(localStorage.fav).length-1)) ;
-            console.log((localStorage.fav).split(','));
  
         })
 
         let generatedColor=[] ;
         let count = 1 ;
         color.forEach((i)=>{ 
-            let tempColor = hslToHex(i[0],i[1],i[2]) ;
+            let tempColor = i[0] == '#' ? i : hslToHex(i[0],i[1],i[2]) ;
             
             const colorEle = document.createElement("div")
             const hexText = document.createElement("p")
@@ -138,6 +139,17 @@ function analogusGen(){
         generatedColors[3][2] = generatedColors[0][2] ;
         createColorPalatteEle(generatedColors);
 }
+function favGen(){
+    let c = localStorage.getItem("fav").split(',');
+      let temp = [];
+      for (let i of c){
+        temp.push(i);
+        if (temp.length == 4){
+            createColorPalatteEle(temp);
+            temp = []
+        }
+      }
+}
 
 // Generate when scrolling reaches end  
 let lastContainer = colorEle.lastChild;
@@ -145,22 +157,26 @@ colorEle.addEventListener('scroll', () => {
     const scrolled = colorEle.scrollTop+1000;
     // console.log(colorEle.lastChild.offsetTop , lastContainer.offsetTop);
     const elementPosition = colorEle.lastChild.offsetTop // lastContainer.offsetTop;
-    console.log(lastContainer);
+    // console.log(lastContainer);
 
     if(scrolled >= elementPosition){
-        console.log("asdfjlaksdj");
-        makePalette();
+        // makePalette();
         lastContainer = colorEle.lastChild ;
     }
 })
 // Palette maker
-function makePalette(x=1){
-    for(let i = 0 ; i < 100 ; i++){
-        if (x==0) complementaryGen();
-        else if (x == 1) monoGen();
-        else if (x == 2) analogusGen();
-        else monoGen();
+function makePalette(x){
+    if (x == 3){
+        favGen() ;
     }
+    else{
+        for(let i = 0 ; i < 100 ; i++){
+            if (x==0) complementaryGen();
+            else if (x == 1) monoGen();
+            else if (x == 2) analogusGen();
+        }
+    }
+    
 }
 function resetElements(v){
     colorEle.innerText = "";
@@ -188,3 +204,12 @@ function te(v = {'dataset' : {'val' : 1}}){
     }
 }
 te();
+
+
+
+
+
+
+
+
+
