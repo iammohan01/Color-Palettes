@@ -82,6 +82,18 @@ body{
     /* position: absolute; */
     width: 100%;
 }
+.colorPalette > p{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
+    /* visibility: hidden; */
+    display: none;
+}
+.colorPalette:hover > p{
+    /* visibility: visible; */
+    display: unset;
+}
 .color1{
     height: 40%;
 }
