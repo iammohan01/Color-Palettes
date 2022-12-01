@@ -10,7 +10,7 @@ function createColorPalatteEle(color){
         const element = document.createElement("div");
         element.classList.add("colorPalette");
         element.id = colorIndex++ ;
-        
+        console.log(colorIndex);
         let generatedColor=[] ;
         let count = 1 ;
         color.forEach((i)=>{ 
@@ -30,12 +30,10 @@ function createColorPalatteEle(color){
                 hexText.classList.remove("dsFlx");
             })
             hexText.addEventListener("click",function(){
-            let temp = this.innerText ;
             navigator.clipboard.writeText(this.innerText);
             this.innerText = "Copied...!";
             setTimeout(()=>{
                 this.innerText = this.parentElement.dataset.bgcolor;
-                temp = "";
             },400)
             
             })
@@ -123,8 +121,6 @@ function analogusGen(){
         createColorPalatteEle(generatedColors);
 }
 
-// generate on load
-makePalette();
 // Generate when scrolling reaches end  
 let lastContainer = colorEle.lastChild
 colorEle.addEventListener('scroll', () => {
@@ -159,13 +155,13 @@ for (let i of selectionElements){
 function te(v = {'dataset' : {'val' : 1}}){
     v = v.dataset.val ;
     for (let i = 0 ; i<selectionElements.length ; i++){
-        console.log(v);
-        resetElements(v)
+       
         if (i != v){
             selectionElements[i].classList.remove("opt-selected");
         }
         else{
             selectionElements[i].classList.add("opt-selected");
+            resetElements(v)
         }
     }
 }
